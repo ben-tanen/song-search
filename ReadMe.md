@@ -5,10 +5,10 @@
 * * *
 
 ### To Do:
-- [ ] Create Data Structures
+- [x] Create Data Structures
 	- [x] Song
 	- [x] Top Song
-	- [ ] wordTrie
-	- [ ] wordTrieNode
+	- [x] wordTrie
+	- [x] wordTrieNode
 - [ ] Implement Data Store
 - [ ] Implement Search

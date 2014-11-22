@@ -1,7 +1,0 @@
-- [x] Create Data Structures
-	- [x] Song
-	- [x] Top Song
-	- [x] wordTrie
-	- [x] wordTrieNode
-- [ ] Implement Data Store
-- [ ] Implement Search
