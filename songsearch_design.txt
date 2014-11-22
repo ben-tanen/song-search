@@ -1,0 +1,51 @@
+HW #6, Song Search: Design Doc
+By Ben Tanen
+
+### Data Structures ###
+There are a few data structures used in my plan:
+
+-> wordTrie: This is a trie made up of words that were used in songs from this 
+database. As songs are loaded in, the words of lyrics are added to the trie 
+(algorithm below).
+-> wordTrieNode: This is a node class that is used in the main wordTrie. 
+A node is used for each letter of a word. Each node holds an array of pointers 
+to children nodes, a boolean describing if the letter is an end letter, a 
+pointer to an array of top 11 songs (see Song class and algorithm). For middle 
+letters, the boolean is false and the pointer is NULL. 
+-> topSong: This is a struct that is used in the top 11 songs array of the 
+wordTrieNode. This struct holds two pieces of data: a pointer to the 
+particular song (see below) and a tally of the word frequency in the song.
+-> Song: This is a class that is made for each song loaded in from the 
+database. It holds the song title, artist, and a vector holding all of the 
+lyrics (word by word, including original punctuation).
+
+These data structures are used to complete the below algorithm.
+
+
+### Algorithm ###
+This assignment can be broken down into two main algorithms: data storage and 
+search.
+
+Data Storage: This process is repeated for each song loaded into the database
+-> Create a new `Song`:
+->-> Store the artist and song title in the song
+->-> For each word of the lyrics:
+->->-> Store the lyric into song's lyric vector (at end)
+->->-> Trim word of any punctuation / capitalization (use alphaOnly)
+->->-> Add trimmed word to wordTrie [Increment frequency in top11 songs]
+->->->-> If there are 10 or fewer songs in the top11 array, do nothing
+->->->-> If new song is the 11th song in array, swap it with lowest (if needed)
+
+At the end of this process, each word should have an array of the top 10 
+(or fewer) songs that can be used in sorting.
+
+Searching: This process is repeated for each search
+-> Go through trie to find word
+-> Sort associated top11 array
+-> For each song of top11 (in descending order):
+->-> Increment through lyric vector until word found
+->-> Print out previous 5 words, actual word, and next 5 words
+->-> If word is placed close to front or end, adjust based on known placement
+
+
+
