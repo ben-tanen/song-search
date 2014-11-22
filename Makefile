@@ -16,6 +16,6 @@ provide_design:
 provide:
 	provide comp15 hw6 <all your files go here>
 
-test: Song.cpp Song.h song_test.cpp
-	${CXX} ${FLAGS} -o test_file Song.cpp song_test.cpp
+test: wordTrieNode.cpp wordTrieNode.h wordTrie.h wordTrie.cpp trie_test.cpp
+	${CXX} ${FLAGS} -o test_file wordTrieNode.cpp wordTrie.cpp trie_test.cpp
 
