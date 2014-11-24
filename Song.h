@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "read_lyrics.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ class Song {
 		string getLyric(int n) { return lyrics[n]; }
 		void   printLyrics();
 		void   printSong();
+		void   printContext(string word);
 
 	private:
 		string artist;
@@ -26,8 +28,8 @@ class Song {
 };
 
 struct topSong {
-	Song* song;
-	int   freq;
+	int song_index;
+	int freq;
 };
 
 #endif

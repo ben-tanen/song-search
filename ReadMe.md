@@ -10,5 +10,8 @@
 	- [x] Top Song
 	- [x] wordTrie
 	- [x] wordTrieNode
-- [ ] Implement Data Store
-- [ ] Implement Search
+- [x] Implement Data Store
+- [x] Implement Search
+- [ ] Clean Up
+	- [ ] Fix Context Print (Print in proper style)
+	- [ ] Check Speed

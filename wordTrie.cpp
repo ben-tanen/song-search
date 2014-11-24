@@ -1,5 +1,4 @@
 #include "wordTrie.h"
-#include "wordTrieNode.h"
 
 using namespace std;
 
@@ -11,7 +10,7 @@ wordTrie::~wordTrie() {
 
 }
 
-void wordTrie::addWord(string word) {
+void wordTrie::addWord(string word, int song_index) {
 	root.addChild(word[0]);
 	wordTrieNode *temp = root.getChild(word[0]);
 	for (int i=1; i<word.length(); i++) {
@@ -20,6 +19,9 @@ void wordTrie::addWord(string word) {
 	}
 
 	temp->setWord();
+	temp->incrementSong(song_index);
+
+
 	return;
 }
 
@@ -36,6 +38,30 @@ bool wordTrie::hasWord(string word) {
 	}
 
 	return temp->checkWord();
+}
+
+void wordTrie::sortTopSongs(string word) {
+	wordTrieNode *temp = root.getChild(word[0]);
+	for (int i=1; i<word.length(); i++) {
+		temp = temp->getChild(word[i]);
+		if (temp == NULL) {
+			return;
+		}
+	}
+
+	temp->sortTopSongs();
+}
+
+int wordTrie::topSongN(string word, int n) {
+	wordTrieNode *temp = root.getChild(word[0]);
+	for (int i=1; i<word.length(); i++) {
+		temp = temp->getChild(word[i]);
+		if (temp == NULL) {
+			return -1;
+		}
+	}
+
+	return temp->topSongN(n);
 }
 
 

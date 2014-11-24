@@ -1,6 +1,8 @@
 HW #6, Song Search: Design Doc
 By Ben Tanen
 
+This plan was approved by Chris Gregg during his office hours (Nov. 20)
+
 ### Data Structures ###
 There are a few data structures used in my plan:
 

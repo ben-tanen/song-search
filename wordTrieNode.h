@@ -16,12 +16,15 @@ class wordTrieNode {
 		char getLetter() { return letter; }
 		void setWord() { isWord = true; }
 		bool checkWord() { return isWord; }
+		void incrementSong(int song_index);
+		int  topSongN(int n) { return topSongs[n].song_index; }
+		void sortTopSongs();
 
 	private:
 		char          letter;
 		wordTrieNode* children[numLetters];
 		bool          isWord;
-		// topSong       topSongs[numTopSongs];
+		topSong       topSongs[numTopSongs];
 };
 
 #endif
