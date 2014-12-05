@@ -1,6 +1,6 @@
-# ReadMe for COMP 15 HW6
-## Song Search 
-### Written by Ben Tanen
+
+## Song Search, COMP-15 (F14)
+Written by Ben Tanen
 
 **Purpose**: The main purpose of this assignment was to be able to store and
 search through a large database of songs (potentially over 170,000 songs). The
