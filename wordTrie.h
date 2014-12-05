@@ -1,3 +1,9 @@
+//
+//  wordTrie.h
+//  Class for trie to store words (lyrics of songs) 
+//  Written by Ben Tanen
+//
+
 #ifndef __wordTrie_h__
 #define __wordTrie_h__
 
