@@ -13,5 +13,5 @@
 - [x] Implement Data Store
 - [x] Implement Search
 - [ ] Clean Up
-	- [ ] Fix Context Print (Print in proper style)
-	- [ ] Check Speed
+	- [x] Fix Context Print (Print in proper style)
+	- [x] Check Speed
