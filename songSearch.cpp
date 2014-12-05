@@ -10,7 +10,7 @@ songSearch::~songSearch() {
 
 void songSearch::fillDatabase(const char * filename, bool show_progress) {
 	ifstream in(filename);		// creates an input stream
-    int song_count = 0;			// for progress indicator
+	int song_count = 0;			// for progress indicator
 	string artist, title, word;
 
 	// -- While more data to read...
@@ -24,9 +24,7 @@ void songSearch::fillDatabase(const char * filename, bool show_progress) {
 		getline(in, title);
 		if (in.fail()) break;
 
-		if ( show_progress )
-		{
-			
+		if ( show_progress ) {
 			if (song_count % 10000 == 0) {
 				cout << "At "       << song_count << 
 					" Artist: " << artist     << 
@@ -61,7 +59,6 @@ void songSearch::searchWord(string word) {
 		for (int i=0; i<11; i++) {
 			int index = trie.topSongN(wordStripped, i);
 			if (index >= 0) {
-				cout << songs[index].getTitle() << " | " << songs[index].getArtist() << endl;
 				songs[index].printContext(word);
 			}
 		}

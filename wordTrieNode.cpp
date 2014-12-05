@@ -3,7 +3,7 @@
 using namespace std;
 
 wordTrieNode::wordTrieNode() {
-	for (int i=0; i<numLetters; i++) {
+	for (int i=0; i<numCharacters; i++) {
 		children[i] = NULL;
 	}
 
@@ -18,7 +18,7 @@ wordTrieNode::wordTrieNode() {
 wordTrieNode::wordTrieNode(char new_letter) {
 	letter = new_letter;
 
-	for (int i=0; i<numLetters; i++) {
+	for (int i=0; i<numCharacters; i++) {
 		children[i] = NULL;
 	}
 
@@ -31,7 +31,7 @@ wordTrieNode::wordTrieNode(char new_letter) {
 }
 
 wordTrieNode::~wordTrieNode() {
-	for (int i=0; i<numLetters; i++) {
+	for (int i=0; i<numCharacters; i++) {
 		if (children[i] != NULL) {
 			delete children[i];
 		}
@@ -39,9 +39,9 @@ wordTrieNode::~wordTrieNode() {
 }
 
 bool wordTrieNode::addChild(char new_letter) {
-	if (children[int(new_letter) - 97] == NULL) {
+	if (children[char_to_ascii(new_letter)] == NULL) {
 		wordTrieNode* new_node = new wordTrieNode(new_letter);
-		children[int(new_letter) - 97] = new_node;
+		children[char_to_ascii(new_letter)] = new_node;
 		return true;
 	} else {
 		return false;
@@ -49,7 +49,7 @@ bool wordTrieNode::addChild(char new_letter) {
 }
 
 wordTrieNode* wordTrieNode::getChild(char child_letter) {
-	return children[int(child_letter) - 97];
+	return children[char_to_ascii(child_letter)];
 }
 
 void wordTrieNode::incrementSong(int song_index) {
@@ -98,4 +98,11 @@ void wordTrieNode::sortTopSongs() {
         topSongs[i].freq = largeInt;
         topSongs[i].song_index = largeIntSong;
     }
+}
+
+int wordTrieNode::char_to_ascii(char x) {
+    // return 0-25 for letters
+    // return 26-36 for digits
+    if (int(x) >= 97) return (int(x) - 97);
+    else return (int(x) - 22);
 }

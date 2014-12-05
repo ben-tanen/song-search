@@ -4,7 +4,7 @@
 #include "Song.h"
 #include "wordTrieNode.h"
 
-#define numLetters 26
+#define numCharacters 36
 
 class wordTrie {
 	public:

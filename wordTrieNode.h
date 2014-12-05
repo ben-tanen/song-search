@@ -3,7 +3,7 @@
 
 #include "Song.h"
 
-#define numLetters 26
+#define numCharacters 36
 #define numTopSongs 11
 
 class wordTrieNode {
@@ -19,10 +19,11 @@ class wordTrieNode {
 		void incrementSong(int song_index);
 		int  topSongN(int n) { return topSongs[n].song_index; }
 		void sortTopSongs();
+		int  char_to_ascii(char x);
 
 	private:
 		char          letter;
-		wordTrieNode* children[numLetters];
+		wordTrieNode* children[numCharacters];
 		bool          isWord;
 		topSong       topSongs[numTopSongs];
 };

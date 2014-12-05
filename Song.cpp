@@ -26,12 +26,15 @@ void Song::printSong() {
 void Song::printContext(string word) {
 	for (int i=0; i<lyrics.size(); i++) {
 		if (alpha_only(lyrics[i]) == alpha_only(word)) {
+			cout << "Title: " << title << endl;
+			cout << "Artist: " << artist << "\nContext: " ;
 			for (int j=i-5;j<i+6;j++) {
-				if (j >= 0 || j < lyrics.size()) {
+				if (j >= 0 && j < lyrics.size()) {
 					cout << lyrics[j] << ' ';
 				}
 			}
-			cout << endl;
+			cout << endl << endl;
 		}
 	}
+	
 }
