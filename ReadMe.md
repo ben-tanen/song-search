@@ -77,23 +77,23 @@ the songSearch class)
 **Algorithm(s)**: This assignment can be broken down into two main 
 algorithms: data storage and search.
 
-Data Storage: This process is repeated for each song loaded into the database
--> Create a new `Song`:
--> Store the artist and song title in the song
--> For each word of the lyrics:
-->-> Store the lyric into song's lyric vector (at end)
-->-> Trim word of any punctuation / capitalization (use alphaOnly)
-->-> Add trimmed word to wordTrie [Increment frequency in top11 songs]
-->->-> If there are 10 or fewer songs in the top11 array, do nothing
-->->-> If new song is the 11th song in array, swap it with lowest (if needed)
+Data Storage: This process is repeated for each song loaded into the database (before any searches)
+- Create a new `Song`:
+- Store the artist and song title in the song
+- For each word of the lyrics:
+ - Store the lyric into song's lyric vector (at end)
+ - Trim word of any punctuation / capitalization (use alphaOnly)
+ - Add trimmed word to wordTrie [Increment frequency in top11 songs]
+  - If there are 10 or fewer songs in the top11 array, do nothing
+  - If new song is the 11th song in array, swap it with lowest (if needed)
 
 At the end of this process, each word should have an array of the top 10 
 (or fewer) songs that can be used in sorting.
 
 Searching: This process is repeated for each search
--> Go through trie to find word
--> Sort associated topSongs array
--> For each song of topSongs (only top 10, in descending order):
-->-> Increment through lyric vector until word found
-->-> Print out previous 5 words, actual word, and next 5 words
-->-> If word is placed close to front or end, adjust based on known placement
+- Go through trie to find word
+- Sort associated topSongs array
+- For each song of topSongs (only top 10, in descending order):
+ - Increment through lyric vector until word found
+ - Print out previous 5 words, actual word, and next 5 words
+ - If word is placed close to front or end, adjust based on known placement
